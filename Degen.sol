@@ -35,7 +35,16 @@ contract DegenToken is ERC20, Ownable {
         require(balanceOf(msg.sender) >= object[itemId], "Insufficient balance");
 
         // Transfer tokens from player to owner (in-game store)
+       
         _transfer(msg.sender, owner, object[itemId]);
         emit ItemRedeemed(msg.sender, itemId, object[itemId]);
     }
+    
+    function transferto(address _recipient, uint256 _amount) external returns (bool) {
+        require(balanceOf(msg.sender) >= _amount, "Insufficient balance");
+        _transfer(msg.sender, _recipient, _amount);
+        return true;
+    }
+
 }
+
