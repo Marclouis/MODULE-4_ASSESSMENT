@@ -24,7 +24,7 @@ contract DegenToken is ERC20, Ownable {
     function burn(uint256 amount) external {
         _burn(msg.sender, amount);
     }
-
+           
     function setItemPrice(uint256 itemId, uint256 price) external onlyOwner {
         object[itemId] = price;
     }
@@ -34,12 +34,12 @@ contract DegenToken is ERC20, Ownable {
         require(object[itemId] > 0, "Item price not set");
         require(balanceOf(msg.sender) >= object[itemId], "Insufficient balance");
 
-        // Transfer tokens from player to owner (in-game store)
-       
+        // Transfer Item to other player
         _transfer(msg.sender, owner, object[itemId]);
         emit ItemRedeemed(msg.sender, itemId, object[itemId]);
     }
-    
+
+        // Transfer Token to other address account of a player
     function transferto(address _recipient, uint256 _amount) external returns (bool) {
         require(balanceOf(msg.sender) >= _amount, "Insufficient balance");
         _transfer(msg.sender, _recipient, _amount);
