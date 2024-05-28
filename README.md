@@ -1,34 +1,36 @@
 # DegenToken
 
+DegenToken is an ERC20 token contract that enables the creation of a decentralized token economy with additional features for managing in-game items.
+
 ## Overview
-DegenToken is an ERC20 token contract that extends the functionality of the OpenZeppelin ERC20 contract. It allows for the creation of a token named "Degen" with the symbol "DGN". Additionally, it includes functionalities for minting, burning, and redeeming in-game items using the token.
 
-## Features
-- Minting: The contract owner can mint new Degen tokens.
-- Burning: Users can burn their Degen tokens to reduce the token supply.
-- Item Redemption: Users can redeem in-game items by spending their Degen tokens. Each item has a specific price denominated in Degen tokens.
+DegenToken is deployed on the Ethereum blockchain and provides functionalities for minting, burning, and redeeming in-game items using tokens.
 
-## Contract Details
-- **Contract Address**: [Contract Address]
-- **Token Name**: Degen
-- **Token Symbol**: DGN
+### Features
 
-## Usage
-### Prerequisites
-- Solidity Compiler version ^0.8.0
-- OpenZeppelin Contracts v4.0.0 or later
+- **ERC20 Compatibility**: DegenToken is compatible with the ERC20 standard, allowing seamless integration with ERC20-compatible wallets and platforms.
+- **Minting and Burning**: The contract owner can mint new tokens and burn existing tokens as necessary.
+- **In-Game Items**: Users can redeem in-game items by spending tokens, with each item having a specific token price.
+
+## Getting Started
 
 ### Deployment
-1. Deploy the contract to a compatible Ethereum network.
-2. Set the initial supply of Degen tokens during deployment.
 
-### Interacting with the Contract
-- Minting: Use the `mint` function to mint new Degen tokens. Only the contract owner can call this function.
-- Burning: Use the `burn` function to burn Degen tokens. Tokens will be removed from the caller's balance.
-- Setting Item Prices: Use the `setItemPrice` function to set the price of in-game items denominated in Degen tokens. Only the contract owner can call this function.
-- Redeeming Items: Use the `redeemItem` function to redeem in-game items by spending Degen tokens. Ensure that you have enough tokens and that the item price is set before calling this function.
+The contract is deployed on the Ethereum mainnet or testnets.
 
-# Ownable Contract
+## Contract Details
+
+- **Name**: DegenToken (DGN)
+- **Decimals**: 18
+- **Initial Supply**: Defined during contract deployment
+
+### Functions
+
+- `redeemItem(uint256 itemId)`: Allows users to redeem in-game items by providing the item ID.
+- `mint(address account, uint256 amount)`: Enables the contract owner to mint new tokens and assign them to the specified account.
+- `burn(uint256 amount)`: Allows users to burn their tokens.
+- `transferto(address _recipient, uint256 _amount)`: Allows users to transfer tokens to another address.
+- `balanceOf(address account) public view virtual returns (uint256)` function is a public view function defined within the DegenToken contract. It returns the token balance of a specified Ethereum address.
 
 ## Overview
 The Ownable contract provides basic functionality for ownership management in Solidity contracts. It allows for the transfer of ownership from one address to another.
